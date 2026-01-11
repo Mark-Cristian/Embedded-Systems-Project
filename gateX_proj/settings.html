@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateX - Settings</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar__top">
+
+          <!-- GateX Brand Card -->
+          <div class="brand-card">
+            <img class="brand-card__logo" src="./gatex-mark.png" alt="GateX" />
+            <div class="brand-card__meta">
+              <div class="brand-card__title">GateX</div>
+              <div class="brand-card__sub">Smart Access Control</div>
+            </div>
+          </div>
+
+          <button class="user" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="avatar" aria-hidden="true"></span>
+            <span class="user__name">User</span>
+            <span class="user__chev" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" class="svg">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </button>
+
+          <!-- User dropdown menu (registered users) -->
+          <div id="userMenu" class="user-menu" aria-hidden="true">
+            <div class="user-menu__title">Registered Users</div>
+            <ul id="userMenuList" class="user-menu__list"></ul>
+            
+          </div>
+
+          <nav class="nav" aria-label="Primary navigation">
+            <a class="nav__item" href="./index.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M3 10.5L12 3l9 7.5" />
+                  <path d="M5 10.5V21h5v-7h4v7h5V10.5" />
+                </svg>
+              </span>
+              <span class="nav__label">Dashboard</span>
+            </a>
+
+            <a class="nav__item" href="./realtime.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v6l4 2" />
+                </svg>
+              </span>
+              <span class="nav__label">Real-time Status<br />Panel</span>
+            </a>
+
+            <a class="nav__item" href="./logs.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M9 5h6" />
+                  <path d="M9 3h6a2 2 0 0 1 2 2v2H7V5a2 2 0 0 1 2-2Z" />
+                  <path d="M7 7h10v14H7z" />
+                  <path d="M9 11h6" />
+                  <path d="M9 15h6" />
+                </svg>
+              </span>
+              <span class="nav__label">Access Logs Table</span>
+            </a>
+
+            <a class="nav__item" href="./alerts.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M12 3l10 18H2L12 3z" />
+                  <path d="M12 9v5" />
+                  <path d="M12 17h.01" />
+                </svg>
+              </span>
+              <span class="nav__label">Alerts Section</span>
+            </a>
+
+            <a class="nav__item is-active" href="./settings.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z" />
+                  <path
+                    d="M19.4 13a7.9 7.9 0 0 0 .1-2l2-1.2-2-3.4-2.3.6a7.7 7.7 0 0 0-1.7-1l-.3-2.4H9.3L9 6a7.7 7.7 0 0 0-1.7 1l-2.3-.6-2 3.4 2 1.2a7.9 7.9 0 0 0 .1 2l-2 1.2 2 3.4 2.3-.6a7.7 7.7 0 0 0 1.7 1l.3 2.4h4.9l.3-2.4a7.7 7.7 0 0 0 1.7-1l2.3.6 2-3.4-2-1.2Z"
+                  />
+                </svg>
+              </span>
+              <span class="nav__label">Settings</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <header class="topbar">
+          <div class="page-title">
+            <span class="page-title__bar" aria-hidden="true"></span>
+            <h1 class="page-title__text">Settings</h1>
+          </div>
+          <div class="brand brand--logo">
+          <img class="brand__mark" src="./gatex-mark.png" alt="GateX" />
+          <span class="brand__text">GateX</span>
+          </div>
+
+        </header>
+
+        <section class="content">
+          <div class="settings-wrap">
+            <div class="settings-subtitle">Configure your smart lock preferences</div>
+
+            <div class="settings-grid">
+              <!-- Change PIN -->
+              <article class="settings-card">
+                <div class="card-title">
+                  <span class="card-title__icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" class="svg">
+                      <path d="M7 11V8a5 5 0 0 1 10 0v3" />
+                      <path d="M6 11h12v10H6z" />
+                    </svg>
+                  </span>
+                  <span>Change PIN</span>
+                </div>
+
+                <div class="form">
+                  <label class="field">
+                    <span class="field__label">Current PIN</span>
+                    <input class="input" type="password" placeholder="Enter current PIN" disabled />
+                  </label>
+
+                  <label class="field">
+                    <span class="field__label">New PIN</span>
+                    <input class="input" type="password" placeholder="Enter new PIN" disabled />
+                  </label>
+
+                  <button class="btn btn--primary" type="button" disabled>Change PIN</button>
+
+                  <div class="card-note">
+                    Placeholder: enable this when backend auth + PIN update API is ready.
+                  </div>
+                </div>
+              </article>
+
+              <!-- Lockout Duration + Alarm -->
+              <article class="settings-card">
+                <div class="card-title">
+                  <span class="card-title__icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" class="svg">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v6l4 2" />
+                    </svg>
+                  </span>
+                  <span>Lockout Duration</span>
+                </div>
+
+                <label class="field">
+                  <span class="field__label">Duration</span>
+                  <select class="select" disabled>
+                    <option selected>30 seconds</option>
+                    <option>1 minute</option>
+                    <option>5 minutes</option>
+                    <option>10 minutes</option>
+                  </select>
+                </label>
+
+                <div class="switch-row">
+                  <div class="switch-label">
+                    <div class="switch-title">Alarm</div>
+                  </div>
+
+                  <label class="switch" aria-label="Alarm toggle (placeholder)">
+                    <input type="checkbox" checked disabled />
+                    <span class="slider" aria-hidden="true"></span>
+                  </label>
+                </div>                
+              </article>
+            </div>
+
+            <!-- Fingerprints -->
+            <article class="fingerprints-card">
+              <div class="card-title">
+                <span class="card-title__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" class="svg">
+                    <path d="M12 11a2 2 0 0 1 2 2c0 1.5-.5 4-2 6" />
+                    <path d="M10 10a4 4 0 0 1 8 2c0 2.5-1 6-3 9" />
+                    <path d="M8.5 9.5A6 6 0 0 1 20 12c0 4-1.5 8-4 12" />
+                    <path d="M6 12a6 6 0 0 1 6-6" />
+                  </svg>
+                </span>
+                <span>Fingerprints</span>
+              </div>
+
+              <div class="fp-block">
+                <div class="fp-name">Fingerprint Management</div>
+
+                <div class="fp-actions">
+                  <button id="btnAddFp" class="fp-action fp-action--add" type="button">
+                    Add Fingerprint <span class="fp-plus">+</span>
+                  </button>
+                
+                  <button id="btnRemoveFp" class="fp-action fp-action--remove" type="button">
+                    Remove Fingerprint
+                  </button>
+                </div>               
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Add Fingerprint Modal -->
+    <div id="modalAddFp" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal__panel">
+        <div class="modal__head">
+          <div class="modal__title">Add Fingerprint</div>
+          <button class="modal__close" type="button" data-modal-close aria-label="Close">✕</button>
+        </div>
+
+        <form id="addFpForm" class="modal__body">
+          <div class="modal__grid">
+            <div class="modal__col">
+              <label class="field">
+                <span class="field__label">Username</span>
+                <input id="addUserName" class="input" type="text" placeholder="e.g., Juan Dela Cruz" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label">User ID</span>
+                <input id="addUserId" class="input" type="text" placeholder="e.g., 2025-001" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label">Photo (optional)</span>
+                <input id="addUserPhoto" class="input input--file" type="file" accept="image/*" />
+              </label>
+
+              <div class="modal__hint">
+                Placeholder: this will trigger fingerprint enrollment on the sensor later.
+              </div>
+            </div>
+
+            <div class="modal__col">
+              <div class="photo-preview">
+                <div id="addPhotoPreview" class="photo-preview__box"></div>
+                <div class="photo-preview__text">Preview</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="addFpStatus" class="modal__status"></div>
+
+          <div class="modal__actions">
+            <button class="btn btn--primary" type="submit">Save</button>
+            <button class="btn" type="button" data-modal-close>Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Remove Fingerprint Modal -->
+    <div id="modalRemoveFp" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal__panel">
+        <div class="modal__head">
+          <div class="modal__title">Remove Fingerprint</div>
+          <button class="modal__close" type="button" data-modal-close aria-label="Close">✕</button>
+        </div>
+
+        <form id="removeFpForm" class="modal__body">
+          <label class="field">
+            <span class="field__label">Select user to remove</span>
+            <select id="removeUserSelect" class="select" required></select>
+          </label>
+
+          <div class="modal__hint">
+            Placeholder: later this will remove fingerprint template on the sensor + DB record.
+          </div>
+
+          <div id="removeFpStatus" class="modal__status"></div>
+
+          <div class="modal__actions">
+            <button class="btn btn--primary" type="submit">Remove</button>
+            <button class="btn" type="button" data-modal-close>Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script defer src="./app.js"></script>
+  </body>
+</html>

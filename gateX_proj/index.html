@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateX - Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar__top">
+
+          <!-- GateX Brand Card -->
+          <div class="brand-card">
+            <img class="brand-card__logo" src="./gatex-mark.png" alt="GateX" />
+            <div class="brand-card__meta">
+              <div class="brand-card__title">GateX</div>
+              <div class="brand-card__sub">Smart Access Control</div>
+            </div>
+          </div>
+
+          <button class="user" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="avatar" aria-hidden="true"></span>
+            <span class="user__name">User</span>
+            <span class="user__chev" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" class="svg">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </button>
+
+          <!-- User dropdown menu (registered users) -->
+          <div id="userMenu" class="user-menu" aria-hidden="true">
+            <div class="user-menu__title">Registered Users</div>
+            <ul id="userMenuList" class="user-menu__list"></ul>
+        
+          </div>
+
+          <nav class="nav" aria-label="Primary navigation">
+            <a class="nav__item is-active" href="./index.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M3 10.5L12 3l9 7.5" />
+                  <path d="M5 10.5V21h5v-7h4v7h5V10.5" />
+                </svg>
+              </span>
+              <span class="nav__label">Dashboard</span>
+            </a>
+
+            <a class="nav__item" href="./realtime.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v6l4 2" />
+                </svg>
+              </span>
+              <span class="nav__label">Real-time Status<br />Panel</span>
+            </a>
+
+            <a class="nav__item" href="./logs.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M9 5h6" />
+                  <path d="M9 3h6a2 2 0 0 1 2 2v2H7V5a2 2 0 0 1 2-2Z" />
+                  <path d="M7 7h10v14H7z" />
+                  <path d="M9 11h6" />
+                  <path d="M9 15h6" />
+                </svg>
+              </span>
+              <span class="nav__label">Access Logs Table</span>
+            </a>
+
+            <a class="nav__item" href="./alerts.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M12 3l10 18H2L12 3z" />
+                  <path d="M12 9v5" />
+                  <path d="M12 17h.01" />
+                </svg>
+              </span>
+              <span class="nav__label">Alerts Section</span>
+            </a>
+
+            <a class="nav__item" href="./settings.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z" />
+                  <path
+                    d="M19.4 13a7.9 7.9 0 0 0 .1-2l2-1.2-2-3.4-2.3.6a7.7 7.7 0 0 0-1.7-1l-.3-2.4H9.3L9 6a7.7 7.7 0 0 0-1.7 1l-2.3-.6-2 3.4 2 1.2a7.9 7.9 0 0 0 .1 2l-2 1.2 2 3.4 2.3-.6a7.7 7.7 0 0 0 1.7 1l.3 2.4h4.9l.3-2.4a7.7 7.7 0 0 0 1.7-1l2.3.6 2-3.4-2-1.2Z"
+                  />
+                </svg>
+              </span>
+              <span class="nav__label">Settings</span>
+            </a>
+          </nav>
+        </div>
+
+        
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <header class="topbar">
+          <div class="page-title">
+            <span class="page-title__bar" aria-hidden="true"></span>
+            <h1 class="page-title__text">Dashboard</h1>
+          </div>
+          <div class="brand brand--logo">
+          <img class="brand__mark" src="./gatex-mark.png" alt="GateX" />
+          <span class="brand__text">GateX</span>
+          </div>
+
+        </header>
+
+        <section class="content">
+          <!-- Welcome / Connectivity Box (matches 2nd image) -->
+          <section class="welcome-box" aria-label="Welcome status">
+            <h2 class="welcome-box__title">Welcome back, <span id="userName">User</span>!</h2>
+
+            <div class="welcome-box__status">
+              <span id="statusDot" class="status-dot is-offline" aria-hidden="true"></span>
+              <span id="statusText" class="status-text">Offline</span>
+            </div>
+
+            <div class="welcome-box__meta">
+              <div id="wifiStatus" class="meta-line">WiFi: Disconnected</div>
+              <div id="signalStatus" class="meta-line">Signal: —</div>
+            </div>
+          </section>
+          <!-- Quick Stats Row -->
+<section class="stats-grid" aria-label="Quick stats">
+  <!-- Successful Attempts -->
+  <article class="stat-card">
+    <div class="stat-top">
+      <span class="stat-label">Successful Attempts</span>
+      <span class="stat-info" title="Total successful attempts today" aria-hidden="true">i</span>
+      <span class="stat-icon stat-icon--success" aria-hidden="true">
+        <!-- check icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" class="svg">
+          <path d="M20 6L9 17l-5-5" />
+        </svg>
+      </span>
+    </div>
+    <div id="statSuccess" class="stat-value">12</div>
+  </article>
+
+  <!-- Failed Attempts -->
+  <article class="stat-card">
+    <div class="stat-top">
+      <span class="stat-label">Failed Attempts</span>
+      <span class="stat-info" title="Total failed attempts today" aria-hidden="true">i</span>
+      <span class="stat-icon stat-icon--danger" aria-hidden="true">
+        <!-- x icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" class="svg">
+          <path d="M18 6L6 18" />
+          <path d="M6 6l12 12" />
+        </svg>
+      </span>
+    </div>
+    <div id="statFailed" class="stat-value">3</div>
+  </article>
+
+  <!-- Alerts Today -->
+  <article class="stat-card">
+    <div class="stat-top">
+      <span class="stat-label">Alerts Today</span>
+      <span class="stat-info" title="Total alerts today" aria-hidden="true">i</span>
+      <span class="stat-icon stat-icon--warn" aria-hidden="true">
+        <!-- alert triangle -->
+        <svg width="18" height="18" viewBox="0 0 24 24" class="svg">
+          <path d="M12 3l10 18H2L12 3z" />
+          <path d="M12 9v5" />
+          <path d="M12 17h.01" />
+        </svg>
+      </span>
+    </div>
+    <div id="statAlerts" class="stat-value">1</div>
+  </article>
+
+  <!-- Last Access -->
+  <article class="stat-card">
+    <div class="stat-top">
+      <span class="stat-label">Last Access</span>
+      <span class="stat-info" title="Most recent access time" aria-hidden="true">i</span>
+      <span class="stat-icon stat-icon--info" aria-hidden="true">
+        <!-- clock -->
+        <svg width="18" height="18" viewBox="0 0 24 24" class="svg">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v6l4 2" />
+        </svg>
+      </span>
+    </div>
+
+    <div class="stat-value stat-value--time">
+      <span id="statLastAccessTime">12:30</span>
+      <span id="statLastAccessAgo" class="stat-sub">(6 mins ago)</span>
+    </div>
+  </article>
+</section>
+          <!-- Placeholder dashboard -->
+          <div class="dash-grid">
+  <!-- Chart 1: Access Attempts Over Time -->
+  <article class="dash-card">
+    <header class="dash-head">
+      <div>
+        <h2 class="dash-title">Access Attempts Over Time</h2>
+        <p class="dash-sub">Granted vs Denied</p>
+      </div>
+
+      <div class="legend" aria-label="Legend">
+        <span class="legend__item">
+          <span class="legend__dot legend__dot--granted" aria-hidden="true"></span>
+          Granted
+        </span>
+        <span class="legend__item">
+          <span class="legend__dot legend__dot--denied" aria-hidden="true"></span>
+          Denied
+        </span>
+        <span class="legend__item">
+          <span class="legend__dot legend__dot--marker" aria-hidden="true"></span>
+          Lockout marker
+        </span>
+      </div>
+    </header>
+
+    <div class="chart-wrap">
+      <div class="chart-bars" role="img" aria-label="Stacked bar chart showing access attempts">
+        <!-- Each bar uses CSS variables for heights (0–100) -->
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--denied" style="--h: 18"></div>
+            <div class="seg seg--granted" style="--h: 62"></div>
+          </div>
+          <div class="bar__label">Mon</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--denied" style="--h: 12"></div>
+            <div class="seg seg--granted" style="--h: 54"></div>
+          </div>
+          <div class="bar__label">Tue</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--denied" style="--h: 30"></div>
+            <div class="seg seg--granted" style="--h: 50"></div>
+          </div>
+          <!-- lockout marker example -->
+          <div class="bar__marker" title="Lockout event"></div>
+          <div class="bar__label">Wed</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--denied" style="--h: 10"></div>
+            <div class="seg seg--granted" style="--h: 66"></div>
+          </div>
+          <div class="bar__label">Thu</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--denied" style="--h: 22"></div>
+            <div class="seg seg--granted" style="--h: 58"></div>
+          </div>
+          <div class="bar__label">Fri</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--denied" style="--h: 8"></div>
+            <div class="seg seg--granted" style="--h: 42"></div>
+          </div>
+          <div class="bar__label">Sat</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--denied" style="--h: 16"></div>
+            <div class="seg seg--granted" style="--h: 48"></div>
+          </div>
+          <div class="bar__label">Sun</div>
+        </div>
+      </div>
+
+      
+    </div>
+  </article>
+
+  <!-- Chart 2: Security Alerts Frequency -->
+  <article class="dash-card">
+    <header class="dash-head">
+      <div>
+        <h2 class="dash-title">Security Alerts Frequency</h2>
+        <p class="dash-sub">Forced Entry / Lockout / Multiple Failed Attempts</p>
+      </div>
+
+      <div class="legend" aria-label="Legend">
+        <span class="legend__item">
+          <span class="legend__dot legend__dot--forced" aria-hidden="true"></span>
+          Forced Entry
+        </span>
+        <span class="legend__item">
+          <span class="legend__dot legend__dot--lockout" aria-hidden="true"></span>
+          Lockout
+        </span>
+        <span class="legend__item">
+          <span class="legend__dot legend__dot--failed" aria-hidden="true"></span>
+          Failed Attempts
+        </span>
+      </div>
+    </header>
+
+    <div class="chart-wrap">
+      <div class="chart-bars" role="img" aria-label="Stacked bar chart showing alerts frequency">
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--failed" style="--h: 22"></div>
+            <div class="seg seg--lockout" style="--h: 10"></div>
+            <div class="seg seg--forced" style="--h: 6"></div>
+          </div>
+          <div class="bar__label">Mon</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--failed" style="--h: 14"></div>
+            <div class="seg seg--lockout" style="--h: 6"></div>
+            <div class="seg seg--forced" style="--h: 0"></div>
+          </div>
+          <div class="bar__label">Tue</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--failed" style="--h: 30"></div>
+            <div class="seg seg--lockout" style="--h: 12"></div>
+            <div class="seg seg--forced" style="--h: 4"></div>
+          </div>
+          <div class="bar__label">Wed</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--failed" style="--h: 8"></div>
+            <div class="seg seg--lockout" style="--h: 0"></div>
+            <div class="seg seg--forced" style="--h: 0"></div>
+          </div>
+          <div class="bar__label">Thu</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--failed" style="--h: 18"></div>
+            <div class="seg seg--lockout" style="--h: 8"></div>
+            <div class="seg seg--forced" style="--h: 2"></div>
+          </div>
+          <div class="bar__label">Fri</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--failed" style="--h: 10"></div>
+            <div class="seg seg--lockout" style="--h: 2"></div>
+            <div class="seg seg--forced" style="--h: 0"></div>
+          </div>
+          <div class="bar__label">Sat</div>
+        </div>
+
+        <div class="bar">
+          <div class="bar__stack">
+            <div class="seg seg--failed" style="--h: 12"></div>
+            <div class="seg seg--lockout" style="--h: 4"></div>
+            <div class="seg seg--forced" style="--h: 0"></div>
+          </div>
+          <div class="bar__label">Sun</div>
+        </div>
+      </div>
+
+      
+    </div>
+  </article>
+</div>
+          
+        </section>
+      </main>
+    </div>
+  
+    <script defer src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GateX - Access Logs</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar__top">
+
+          <!-- GateX Brand Card -->
+          <div class="brand-card">
+            <img class="brand-card__logo" src="./gatex-mark.png" alt="GateX" />
+            <div class="brand-card__meta">
+              <div class="brand-card__title">GateX</div>
+              <div class="brand-card__sub">Smart Access Control</div>
+            </div>
+          </div>
+
+          <button class="user" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="avatar" aria-hidden="true"></span>
+            <span class="user__name">User</span>
+            <span class="user__chev" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" class="svg">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </span>
+          </button>
+
+          <!-- User dropdown menu (registered users) -->
+          <div id="userMenu" class="user-menu" aria-hidden="true">
+            <div class="user-menu__title">Registered Users</div>
+            <ul id="userMenuList" class="user-menu__list"></ul>
+            
+          </div>
+
+          <nav class="nav" aria-label="Primary navigation">
+            <a class="nav__item" href="./index.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M3 10.5L12 3l9 7.5" />
+                  <path d="M5 10.5V21h5v-7h4v7h5V10.5" />
+                </svg>
+              </span>
+              <span class="nav__label">Dashboard</span>
+            </a>
+
+            <a class="nav__item" href="./realtime.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v6l4 2" />
+                </svg>
+              </span>
+              <span class="nav__label">Real-time Status<br />Panel</span>
+            </a>
+
+            <a class="nav__item is-active" href="./logs.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M9 5h6" />
+                  <path d="M9 3h6a2 2 0 0 1 2 2v2H7V5a2 2 0 0 1 2-2Z" />
+                  <path d="M7 7h10v14H7z" />
+                  <path d="M9 11h6" />
+                  <path d="M9 15h6" />
+                </svg>
+              </span>
+              <span class="nav__label">Access Logs Table</span>
+            </a>
+
+            <a class="nav__item" href="./alerts.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M12 3l10 18H2L12 3z" />
+                  <path d="M12 9v5" />
+                  <path d="M12 17h.01" />
+                </svg>
+              </span>
+              <span class="nav__label">Alerts Section</span>
+            </a>
+
+            <a class="nav__item" href="./settings.html">
+              <span class="nav__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                  <path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z" />
+                  <path
+                    d="M19.4 13a7.9 7.9 0 0 0 .1-2l2-1.2-2-3.4-2.3.6a7.7 7.7 0 0 0-1.7-1l-.3-2.4H9.3L9 6a7.7 7.7 0 0 0-1.7 1l-2.3-.6-2 3.4 2 1.2a7.9 7.9 0 0 0 .1 2l-2 1.2 2 3.4 2.3-.6a7.7 7.7 0 0 0 1.7 1l.3 2.4h4.9l.3-2.4a7.7 7.7 0 0 0 1.7-1l2.3.6 2-3.4-2-1.2Z"
+                  />
+                </svg>
+              </span>
+              <span class="nav__label">Settings</span>
+            </a>
+          </nav>
+        </div>
+
+        
+      </aside>
+
+      <!-- Main -->
+      <main class="main">
+        <header class="topbar">
+          <div class="page-title">
+            <span class="page-title__bar" aria-hidden="true"></span>
+            <h1 class="page-title__text">Access Logs Table</h1>
+          </div>
+          <div class="brand brand--logo">
+          <img class="brand__mark" src="./gatex-mark.png" alt="GateX" />
+          <span class="brand__text">GateX</span>
+          </div>
+
+        </header>
+
+        <section class="content">
+          <div class="mini-pill">
+            <svg width="18" height="18" viewBox="0 0 24 24" class="svg" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v6l4 2" />
+            </svg>
+            <span>Activity</span>
+          </div>
+
+          <div class="logs-card">
+            <div class="logs-title">Recent door activity and access history</div>
+
+            <!-- Placeholder log item (replace with real DB items later) -->
+            <div class="log-item">
+              <div class="log-left">
+                <div class="log-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                    <path d="M7 11V8a5 5 0 0 1 10 0v3" />
+                    <path d="M6 11h12v10H6z" />
+                  </svg>
+                </div>
+
+                <div class="log-text">
+                  <div class="log-main">
+                    <span class="log-status log-status--ok">Access Granted</span>
+                  </div>
+                  <div class="log-sub">User</div>
+                  <div class="log-sub">Dec 14, 08:00 PM</div>
+                </div>
+              </div>
+
+              <div class="log-method">Fingerprint</div>
+            </div>
+
+            <!-- Optional second placeholder (uncomment later)
+            <div class="log-item">
+              <div class="log-left">
+                <div class="log-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" class="svg">
+                    <path d="M12 3l10 18H2L12 3z" />
+                    <path d="M12 9v5" />
+                    <path d="M12 17h.01" />
+                  </svg>
+                </div>
+
+                <div class="log-text">
+                  <div class="log-main">
+                    <span class="log-status log-status--bad">Access Denied</span>
+                  </div>
+                  <div class="log-sub">Unknown</div>
+                  <div class="log-sub">Dec 14, 08:10 PM</div>
+                </div>
+              </div>
+
+              <div class="log-method">Fingerprint</div>
+            </div>
+            -->
+
+            <div class="logs-empty-note">
+              Placeholder list. When you add a database, you’ll render items here dynamically.
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  
+    <script defer src="./app.js"></script>
+  </body>
+</html>
